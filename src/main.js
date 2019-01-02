@@ -10,7 +10,7 @@ import theme from "./theme";
 import "./main.styl";
 
 Vue.use(VueAxios, axios);
-axios.defaults.baseURL = store.state.linshareBaseUrl;
+axios.defaults.baseURL = process.env.NODE_ENV === "production" ? window.location.origin : store.state.linshareBaseUrl;
 Vue.router = router;
 Vue.use(require("@websanova/vue-auth"), services.auth);
 Vue.use(Vuetify, { theme });
